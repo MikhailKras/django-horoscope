@@ -18,6 +18,10 @@ days_dict = {
 }
 
 
+def get_main_page(request):
+    return render(request, 'week_days/greeting.html')
+
+
 def get_info_about_days(request, day: str) -> HttpResponse:
     if day in days_dict:
         return HttpResponse(days_dict[day])

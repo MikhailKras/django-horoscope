@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 from datetime import datetime
 
 # Create your views here.
@@ -68,9 +69,7 @@ class ZodiacDay:
 
 
 def get_info_about_sign_zodiac(request, sign_zodiac: str) -> HttpResponse:
-    if sign_zodiac in signs:
-        return HttpResponse(f'<p style="font-size:26px"> {signs[sign_zodiac]} </p>')
-    return HttpResponseNotFound(f'Неизвестный знак зодиака - {sign_zodiac}')
+    return HttpResponse(request, 'horoscope/info_zodiac.html')
 
 
 def get_info_about_sign_zodiac_by_num(request, sign_zodiac: int) -> HttpResponse:
