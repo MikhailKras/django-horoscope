@@ -1,4 +1,5 @@
 from django.test import TestCase
+from . import views
 
 
 # Create your tests here.
@@ -16,6 +17,7 @@ class TestHoroscope(TestCase):
                       response.content.decode())
 
     def test_libra_redirect(self):
-        response = self.client.get('/horoscope/7/')
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/horoscope/libra/')
+        for number, zodiac_name in zip(range(1, 13), views.signs):
+            response = self.client.get(f'/horoscope/{number}/')
+            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.url, f'/horoscope/{zodiac_name}/')

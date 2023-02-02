@@ -11,7 +11,7 @@ for converter, name_converter in my_converters:
     register_converter(converter, name_converter)
 
 urlpatterns = [
-    path('', views_horoscope.index),
+    path('', views_horoscope.index, name='horoscope-home'),
     path('<my_date:sign_zodiac>/', views_horoscope.get_my_date_converters),
     path('<yyyy:sign_zodiac>/', views_horoscope.get_yyyy_converters),
     path('<int:sign_zodiac>/', views_horoscope.get_info_about_sign_zodiac_by_num),

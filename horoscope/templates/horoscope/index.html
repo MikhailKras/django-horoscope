@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title %} Menu {% endblock %}
+
+{% block css_addition %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include 'includes/navbar.html' %}
+    <h1 style="font-size: 30px; color: darkviolet">Zodiacs</h1>
+    <ol>
+        {% for zodiac_name in zodiac_names %}
+            <li style="font-size: 24px"><a href="{% url 'horoscope-name' sign_zodiac=zodiac_name%}">{{ zodiac_name|title }}</a></li>
+        {% endfor %}
+    </ol>
+    {% include 'includes/navbar.html' %}
+{% endblock %}
