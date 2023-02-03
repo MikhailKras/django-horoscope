@@ -11,6 +11,7 @@
 
 {% block content %}
     {% include 'includes/navbar.html' %}
+    <h2>{{ sign|capfirst }}</h2>
     {% if description_zodiac is None %}
         <h2>Неправильный знак зодиака - {{ sign|upper }}</h2>
     {% else %}

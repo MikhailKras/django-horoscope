@@ -1,3 +1,13 @@
 h2 {
-    color: blue;
+    color: #3737ff;
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 30px;
+}
+
+h1 {
+    color: #2107ff;
+    text-align: center;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 40px;
 }

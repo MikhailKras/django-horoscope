@@ -80,15 +80,11 @@ class Person:
 
 def get_info_about_sign_zodiac(request, sign_zodiac: str) -> HttpResponse:
     description = signs.get(sign_zodiac)
+    zodiacs = list(signs)
     data = {
         'description_zodiac': description,
         'sign': sign_zodiac,
-        'my_list': [1, 2, 3],
-        'my_tuple': (1, 2, 3, 4, 5, 6, 7),
-        'my_dict': {'name': 'Jack', 'age': 40},
-        'my_int': 111,
-        'my_float': 111.5,
-        'my_class': Person('Will', 50),
+        'zodiacs': zodiacs
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)
 

@@ -1,4 +1,7 @@
-<nav style="font-size: 24px">
-    <a href="/">Home</a> |
+<nav>
+    <a href="/">Home</a>
     <a href="{% url 'horoscope-home' %}">All horoscopes</a>
+    {% for zodiac in zodiacs %}
+        <a href="{% url 'horoscope-name' sign_zodiac=zodiac %}">{{ zodiac|title }}</a>
+    {% endfor %}
 </nav>
